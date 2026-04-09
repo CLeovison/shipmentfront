@@ -1,17 +1,31 @@
-import { createFileRoute } from "@tanstack/react-router";
-import Navigation from "../shared/navigation/Navigation.tsx";
-import LoginPage from "../features/login/Login.tsx";
+import { createFileRoute } from '@tanstack/react-router'
+import Navigation from '../shared/navigation/Navigation.tsx'
 
-
-function IndexPage() {
-  return(
-    <>
-    <Navigation/>
-    <LoginPage></LoginPage>
-    </>
+function AppLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <div
+      style={{
+        minHeight: '100vh',   // fill viewport height
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
+      <Navigation />
+      <div style={{ flex: 1 }}>{children}</div>
+    </div>
   )
 }
 
-export const Route = createFileRoute("/")({
+function IndexPage() {
+  return (
+    <AppLayout>
+      <div style={{ color: '#fff', textAlign: 'center', padding: '2rem' }}>
+        Welcome to Shipment Tracker
+      </div>
+    </AppLayout>
+  )
+}
+
+export const Route = createFileRoute('/')({
   component: IndexPage,
 })

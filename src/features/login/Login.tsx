@@ -1,70 +1,154 @@
-import { Stack, TextField, Button, Typography, Paper } from '@mui/material';
-import ShipmentLogo from '../../../assets/logo.png';
+// src/features/auth/LoginPage.tsx
+import {
+  Stack,
+  TextField,
+  Button,
+  Typography,
+  Paper,
+  Box,
+} from '@mui/material';
 import { Link } from '@tanstack/react-router';
+import ShipmentLogo from '../../../assets/logo.png';
 
 export default function LoginPage() {
   return (
-    <Stack
+    <Box
       sx={{
         minHeight: '100vh',
-        backgroundColor: '#f5f5f5',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        px: 2,
+        background: 'linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%)',
+        color: '#fff',
       }}
     >
-      <Paper elevation={3} sx={{ p: 4, width: 360 }}>
-        {/* Logo + Title */}
-        <Stack spacing={1} sx={{ alignItems: 'center', mb: 3 }}>
+      <Stack
+        sx={{
+          width: '100%',
+          maxWidth: 1000,
+          margin: '0 auto',
+          flexDirection: { xs: 'column', md: 'row' },
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: { xs: 4, md: 6 },
+        }}
+      >
+  
+        <Stack
+          sx={{
+            flex: '1 1 0',
+            alignItems: { xs: 'center', md: 'flex-start' },
+            justifyContent: 'center',
+            textAlign: { xs: 'center', md: 'left' },
+            px: { xs: 2, md: 4 },
+          }}
+          spacing={3}
+        >
           <img
             src={ShipmentLogo}
             alt="Shipment Tracker Logo"
-            style={{ width: 80, height: 80 }}
+            style={{ width: 100, height: 100 }}
           />
-          <Typography variant="h5" sx={{ fontWeight: 'bold' }}>
+          <Typography variant="h4" sx={{ fontWeight: 'bold', color: '#fff' }}>
             Shipment Tracker
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            Sign in to continue
+          <Typography variant="h6" sx={{ color: 'rgba(255,255,255,0.8)' }}>
+            Manage your deliveries with ease.
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{ color: 'rgba(255,255,255,0.6)', maxWidth: 400 }}
+          >
+            Real‑time tracking, instant updates, and powerful analytics to keep
+            your shipments on schedule.
           </Typography>
         </Stack>
 
-        {/* Form Fields */}
-        <Stack spacing={2}>
-          <TextField label="Email" type="email" fullWidth />
-          <TextField label="Password" type="password" fullWidth />
-          <Button variant="contained" color="primary" fullWidth>
-            Login
-          </Button>
-        </Stack>
-
-        {/* Footer Links */}
+        {/* Login Form */}
         <Stack
           sx={{
-            mt: 2,
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
+            flex: '1 1 0',
             alignItems: 'center',
+            justifyContent: 'center',
+            px: { xs: 2, md: 4 },
           }}
         >
-          {/* Left side */}
-          <Link
-            to="/register"
-            style={{ textDecoration: 'none', color: '#1976d2' }}
+          <Paper
+            elevation={6}
+            sx={{
+              p: { xs: 3, md: 4 },
+              width: { xs: '100%', sm: 360 },
+              backgroundColor: '#121212', // dark card
+              border: '1px solid rgba(255,255,255,0.1)',
+              color: '#fff',
+            }}
           >
-            Create Account
-          </Link>
+            <Stack spacing={1} sx={{ alignItems: 'center', mb: 3 }}>
+              <Typography variant="h6" sx={{ fontWeight: 'bold', color: '#fff' }}>
+                Sign in to continue
+              </Typography>
+            </Stack>
 
-          {/* Right side */}
-          <Link
-            to="/forgot-password"
-            style={{ textDecoration: 'none', color: '#1976d2' }}
-          >
-            Forgot Password?
-          </Link>
+            <Stack spacing={2}>
+              <TextField
+                label="Email"
+                type="email"
+                fullWidth
+                variant="outlined"
+                slotProps={{
+                  inputLabel: { style: { color: '#bbb' } },
+                  input: { style: { color: '#fff', backgroundColor: '#1e1e1e' } },
+                }}
+              />
+              <TextField
+                label="Password"
+                type="password"
+                fullWidth
+                variant="outlined"
+                slotProps={{
+                  inputLabel: { style: { color: '#bbb' } },
+                  input: { style: { color: '#fff', backgroundColor: '#1e1e1e' } },
+                }}
+              />
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: '#00e676',
+                  '&:hover': { backgroundColor: '#00c853' },
+                  color: '#000',
+                }}
+                fullWidth
+              >
+                Login
+              </Button>
+            </Stack>
+
+            <Stack
+              sx={{
+                mt: 2,
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              <Link
+                to="/register"
+                style={{ textDecoration: 'none', color: '#00e676' }}
+              >
+                Create Account
+              </Link>
+              <Link
+                to="/forgot-password"
+                style={{ textDecoration: 'none', color: '#00e676' }}
+              >
+                Forgot Password?
+              </Link>
+            </Stack>
+          </Paper>
         </Stack>
-      </Paper>
-    </Stack>
+      </Stack>
+    </Box>
   );
 }

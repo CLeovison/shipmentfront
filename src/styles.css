@@ -1,0 +1,28 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Dark mode overrides for MUI */
+.MuiPaper-root {
+  background-color: #121212 !important;
+  color: #fff !important;
+}
+
+.MuiOutlinedInput-root {
+  background-color: #1e1e1e !important;
+  color: #fff !important;
+}
+
+.MuiInputLabel-root {
+  color: #bbb !important;
+}
+
+.MuiButton-contained {
+  background-color: #00e676 !important;
+  color: #000 !important;
+}
+.MuiButton-contained:hover {
+  background-color: #00c853 !important;
+}

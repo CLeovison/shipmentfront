@@ -12,8 +12,7 @@ export default [
       '@typescript-eslint/array-type': 'off',
       '@typescript-eslint/require-await': 'off',
       'pnpm/json-enforce-catalog': 'off',
-      '@tanstack/router/create-route-property-order': 'off',
-      '@tanstack/router/prefer-create-file-route': 'off',
+
     },
   },
   {
